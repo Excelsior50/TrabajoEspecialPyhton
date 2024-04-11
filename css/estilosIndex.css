@@ -1,0 +1,10 @@
+@import url("reset.css");
+@import url("estiloGeneral.css");
+
+h1 {
+  text-align: center;
+  background-color: #177217;
+}
+
+
+

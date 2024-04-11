@@ -1,0 +1,26 @@
+
+.menuContainer {
+    position: absolute;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.hamburguesa {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+.--active {
+    left: 0;
+}
