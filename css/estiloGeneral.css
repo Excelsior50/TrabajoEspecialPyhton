@@ -3,46 +3,53 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 1rem;
+  background-color: #6dc95a;
 }
 
 .logo {
-  width: 150px;
-  height: 150px;
+  width: 9rem;
+  height: 8rem;
 }
 
 .menuContainer {
   position: absolute;
-  left: -100vw;
+  display: none;
   width: 100vw;
   height: 100vh;
+  top: 5rem;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  max-width: 25%;
-  gap: 8px;
-  background-color: #40471375;
+  align-items: start;
+  max-width: 20%;
+  gap: 1rem;
+  background-color: #280f9775;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: black;
   top: 0;
+  bottom: 0;
+  /* porque el menu no llega hasta abajo con el bottom 0? */
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   padding: 1.5%;
 }
 
 .search {
-  width: 24px;
-  height: 24px;
+  width: 2rem;
+  height: 2rem;
   color: #080808;
 }
 
 .hamburguesa {
-  width: 24px;
-  height: 24px;
+  width: 2rem;
+  height: 2rem;
   color: #080808;
 }
 
 .--active {
-  left: 0;
+  display: block;
 }
 
 /* 
