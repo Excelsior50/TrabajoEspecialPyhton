@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #6dc95a;
+  background-color: #0a1a2a;
 }
 
 .logo {
@@ -15,23 +15,24 @@
 .menuContainer {
   position: absolute;
   display: none;
-  width: 100vw;
+  width: 300vw;
   height: 100vh;
-  top: 5rem;
+  top: 4rem;
+  bottom: 0;
 }
 
 .menu {
+
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: start;
   max-width: 20%;
   gap: 1rem;
-  background-color: #280f9775;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: black;
+  background-color: #b1aeae;
+  color: rgb(241, 228, 228);
   top: 0;
   bottom: 0;
-  /* porque el menu no llega hasta abajo con el bottom 0? */
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   padding: 1.5%;
 }
@@ -39,13 +40,13 @@
 .search {
   width: 2rem;
   height: 2rem;
-  color: #080808;
+  color: #949393;
 }
 
 .hamburguesa {
   width: 2rem;
   height: 2rem;
-  color: #080808;
+  color: #949393;
 }
 
 .--active {
