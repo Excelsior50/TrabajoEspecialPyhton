@@ -71,7 +71,8 @@ header {
   }
 
   .nav.visible {
-      opacity: 1;
+      width: 100%;
+      opacity: 0.99;
       visibility: visible;
   }
   
