@@ -1,4 +1,3 @@
-
 /*Pie de Pagina*/
 
 #container.menu{
@@ -12,8 +11,8 @@
     background-color:#222;
     padding:5px;
     margin-top: auto;
-    bottom: 0;
 }
+
 .pie-pagina .grupo-1{
     width: 100%;
     max-width: 1200px;
