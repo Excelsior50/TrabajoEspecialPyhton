@@ -44,6 +44,30 @@ punto.forEach( (cadaPunto , i) => {
     })
 })
 
+// Formulario de contacto
+
+// Defino constante formulario
+const formulario = document.getElementById('formulario');
+
+// addeventListener para "escuchar" al botón submit, preventDefault para evitar la recarga.
+formulario.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+// Defino constantes
+  const nombre = document.getElementById('nombre').value;
+  const email = document.getElementById('email').value;
+  const mensaje = document.getElementById('mensaje').value;
+
+  if (nombre === '' || email === '' || mensaje === '') {
+    alert('Todos los campos son obligatorios');
+    return;
+  }
+
+  // Enviar los datos a un servidor
+  // ...
+
+  alert('Formulario enviado correctamente');
+});
 
 
 
