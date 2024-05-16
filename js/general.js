@@ -19,7 +19,7 @@ cerrar.addEventListener("click", () => {
 const grande = document.querySelector('.grande');
 const punto = document.querySelectorAll('.punto');
 
-//Recorrer TODOS los punto
+//Recorrer TODOS los punto - Carrousel
 punto.forEach( (cadaPunto , i) => {
     //Asignamos un CLICK a cadaPunto
     punto[i].addEventListener('click',()=>{
@@ -45,16 +45,43 @@ punto.forEach( (cadaPunto , i) => {
 })
 
 
+//Carga Dinamica Productos
+
+// Carga de los datos externos
+const cargarDatos = function() {
+    let contenido = document.querySelector('.grillaProductos');
+    fetch('.json/productos.json')
+        .then(respuesta => respuesta.json())
+        .then(datos => cargarProductos(contenido, datos));
+}
+
+// Modificación del HTML
+function cargarProductos(contenido, datos) {
+    for (let d of datos) {
+        for (let i of d.imagen ) {
+            let logo = document.createElement("img");
+            logo.src = i.ubicacion;
+            logo.alt = i.textoAlt
+            logo.className = 'imgProducto';
+            imagenes.appendChild(logo);
+        }
+        let producto = document.createElement('article');
+        let nombre = document.createElement('h3');
+        nombre.className = "bold";
+        nombre.innerHTML = d.producto;
+        let imagenes = document.createElement('div');
+        imagenes.className = 'contImg'
+
+        let precio = document.createElement('p');
+        precio.innerHTML = `Precio: ${d.inicio}`
+
+        producto.append(imagenes, nombre, precio);
+        contenido.appendChild(curso);
+    }
+}
+
+export { cargarDatos };
 
 
 
 
-
-
-
-
-
-
-
-
-//https://www.youtube.com/watch?v=2CEptqw-bSQ&ab_channel=EduardoFierro min13

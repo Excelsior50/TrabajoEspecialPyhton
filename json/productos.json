@@ -1,0 +1,37 @@
+[
+    {   
+        "imagen" : [
+            {
+                "ubicacion": "./img/",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ],
+        "producto" : "Thermaltake S200 TG ARGB",
+        "precio" : "Consultar"
+    },
+
+    {   
+        "imagen" : [
+            {
+                "ubicacion": "./img/",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ],
+        "producto" : "RTX 4070 Zotac 12 gb",
+        "precio" : "Consultar"
+    },
+
+    {   
+        "imagen" : [
+            {
+                "ubicacion": "./img/",
+                "textoAlt": "Logo de lenguaje Python"
+            }
+        ],
+        "producto" : "Asus B650-Creator",
+        "precio" : "Consultar"
+    }
+        
+
+]
+
