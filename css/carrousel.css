@@ -1,6 +1,5 @@
 .carrousel {
-    margin-left: 0.1em;
-    width: 99%;
+    width: 100%;
     max-width: 120em;
     overflow: hidden;
 }
@@ -53,10 +52,18 @@
     box-shadow:  4px 4px 0px #232523,
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 450px) {
 
     .img{
         height: 40%;
+    }
+
+}
+
+@media (min-width: 455px) and (max-width: 800px) {
+
+    .img{
+        height: 25em;
     }
 
 }

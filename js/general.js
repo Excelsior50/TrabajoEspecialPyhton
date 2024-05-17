@@ -104,7 +104,6 @@ function cargarProductos(contenido, datos) {
     }
 }
 
-export { cargarDatos };
 
 
 
