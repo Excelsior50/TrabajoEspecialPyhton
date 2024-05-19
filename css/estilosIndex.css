@@ -2,11 +2,9 @@
 @import url("estiloGeneral.css");
 @import url("piepag.css");
 @import url("carrousel.css");
+@import url("cardProduct.css");
 
 h1 {
   text-align: center;
   background-color: #177217;
 }
-
-
-

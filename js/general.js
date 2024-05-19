@@ -19,7 +19,7 @@ cerrar.addEventListener("click", () => {
 const grande = document.querySelector('.grande');
 const punto = document.querySelectorAll('.punto');
 
-//Recorrer TODOS los punto
+//Recorrer TODOS los punto - Carrousel
 punto.forEach( (cadaPunto , i) => {
     //Asignamos un CLICK a cadaPunto
     punto[i].addEventListener('click',()=>{
@@ -50,7 +50,8 @@ punto.forEach( (cadaPunto , i) => {
 const formulario = document.getElementById('formulario');
 
 // addeventListener para "escuchar" al botón submit, preventDefault para evitar la recarga.
-formulario.addEventListener('submit', function(event) {
+//Se agrega ?, optional chaining, para programacion defensiva.
+formulario?.addEventListener('submit', function(event) {
   event.preventDefault();
 
 // Defino constantes
@@ -71,14 +72,55 @@ formulario.addEventListener('submit', function(event) {
 
 
 
+//Carga Dinamica Productos
 
+// Carga de los datos externos
+//const getProducts = function() {
+//    let products ;
+//    fetch('/json/productos.json')
+//        .then(response => response.json())
+//        .then(data => {
+//            products = data;
+//        })
+//    return products;
+//}
 
+async function getProducts() {
+    try {
+      const response = await fetch('/json/productos.json');
+      if (!response.ok) {
+        throw new Error('Error al cargar el archivo JSON');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      return [];
+    }
+}
 
+// Modificación del HTML
+const renderProducts = function(products) {
+    const gridProducts = document.getElementById("gridProducts");
+    gridProducts.innerHTML = "";
+    products.forEach(product => {
+        const productCard = document.createElement("article");
+        productCard.className = "cardProduct";
+        productCard.innerHTML = `
+            <div class = "cardPlaceholder" >
+                <img src=${product.img.src} alt=${product.img.alt} />
+            </div>
+            <div class = "cardDescription" >
+                <h2>${product.title}</h2>
+                <span>${product.price}</span>
+            </div>
+        `
+        gridProducts.appendChild(productCard);
+    })    
+}
 
-
-
-
-
-
-
-//https://www.youtube.com/watch?v=2CEptqw-bSQ&ab_channel=EduardoFierro min13
+//Evento para ejecutar todo una vez carga el DOM
+document.addEventListener("DOMContentLoaded", async ()=>{
+    const products = await getProducts();
+    renderProducts(products);
+})
