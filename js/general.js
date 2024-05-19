@@ -50,7 +50,8 @@ punto.forEach( (cadaPunto , i) => {
 const formulario = document.getElementById('formulario');
 
 // addeventListener para "escuchar" al botón submit, preventDefault para evitar la recarga.
-formulario.addEventListener('submit', function(event) {
+//Se agrega ?, optional chaining, para programacion defensiva.
+formulario?.addEventListener('submit', function(event) {
   event.preventDefault();
 
 // Defino constantes
@@ -69,42 +70,57 @@ formulario.addEventListener('submit', function(event) {
   alert('Formulario enviado correctamente');
 });
 
+
+
 //Carga Dinamica Productos
 
 // Carga de los datos externos
-const cargarDatos = function() {
-    let contenido = document.querySelector('.grillaProductos');
-    fetch('.json/productos.json')
-        .then(respuesta => respuesta.json())
-        .then(datos => cargarProductos(contenido, datos));
-}
+//const getProducts = function() {
+//    let products ;
+//    fetch('/json/productos.json')
+//        .then(response => response.json())
+//        .then(data => {
+//            products = data;
+//        })
+//    return products;
+//}
 
-// Modificación del HTML
-function cargarProductos(contenido, datos) {
-    for (let d of datos) {
-        for (let i of d.imagen ) {
-            let logo = document.createElement("img");
-            logo.src = i.ubicacion;
-            logo.alt = i.textoAlt
-            logo.className = 'imgProducto';
-            imagenes.appendChild(logo);
-        }
-        let producto = document.createElement('article');
-        let nombre = document.createElement('h3');
-        nombre.className = "bold";
-        nombre.innerHTML = d.producto;
-        let imagenes = document.createElement('div');
-        imagenes.className = 'contImg'
-
-        let precio = document.createElement('p');
-        precio.innerHTML = `Precio: ${d.inicio}`
-
-        producto.append(imagenes, nombre, precio);
-        contenido.appendChild(curso);
+async function getProducts() {
+    try {
+      const response = await fetch('/json/productos.json');
+      if (!response.ok) {
+        throw new Error('Error al cargar el archivo JSON');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      return [];
     }
 }
 
+// Modificación del HTML
+const renderProducts = function(products) {
+    const gridProducts = document.getElementById("gridProducts");
+    gridProducts.innerHTML = "";
+    products.forEach(product => {
+        const productCard = document.createElement("article");
+        productCard.className = "cardProduct";
+        productCard.innerHTML = `
+            <div class = "cardPlaceholder" >
+                <img src=${product.img.src} alt=${product.img.alt} />
+            </div>
+            <div class = "cardDescription" >
+                <h2>${product.title}</h2>
+                <span>${product.price}</span>
+            </div>
+        `
+        gridProducts.appendChild(productCard);
+    })    
+}
 
-
-
-
+//Evento para ejecutar todo una vez carga el DOM
+document.addEventListener("DOMContentLoaded", async ()=>{
+    const products = await getProducts();
+    renderProducts(products);
+})

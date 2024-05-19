@@ -1,37 +1,99 @@
 [
     {   
-        "imagen" : [
+        "img" : 
             {
-                "ubicacion": "./img/",
-                "textoAlt": "Logo de lenguaje Python"
+                "src": "/img/s200-tg-argb.jpg",
+                "alt": "descripcion"
             }
-        ],
-        "producto" : "Thermaltake S200 TG ARGB",
-        "precio" : "Consultar"
+        ,
+        "title" : "Thermaltake S200 TG ARGB",
+        "price" : "Consultar"
     },
 
     {   
-        "imagen" : [
+        "img" : 
             {
-                "ubicacion": "./img/",
-                "textoAlt": "Logo de lenguaje Python"
+                "src": "/img/407-zot-fp.jpg",
+                "alt": "descripcion"
             }
-        ],
-        "producto" : "RTX 4070 Zotac 12 gb",
-        "precio" : "Consultar"
+        ,
+        "title" : "RTX 4070 Zotac 12 gb",
+        "price" : "Consultar"
     },
 
     {   
-        "imagen" : [
+        "img" : 
             {
-                "ubicacion": "./img/",
-                "textoAlt": "Logo de lenguaje Python"
+                "src": "/img/Mother_ASUS_PROART_B650-CREATOR_AM5_DDR5.jpg",
+                "alt": "descripcion"
             }
-        ],
-        "producto" : "Asus B650-Creator",
-        "precio" : "Consultar"
+        ,
+        "title" : "Asus B650-Creator",
+        "price" : "Consultar"
+    },
+    {   
+        "img" : 
+            {
+                "src": "/img/s200-tg-argb.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "Thermaltake S200 TG ARGB",
+        "price" : "Consultar"
+    },
+
+    {   
+        "img" : 
+            {
+                "src": "/img/407-zot-fp.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "RTX 4070 Zotac 12 gb",
+        "price" : "Consultar"
+    },
+
+    {   
+        "img" : 
+            {
+                "src": "/img/Mother_ASUS_PROART_B650-CREATOR_AM5_DDR5.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "Asus B650-Creator",
+        "price" : "Consultar"
+    },
+    {   
+        "img" : 
+            {
+                "src": "/img/s200-tg-argb.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "Thermaltake S200 TG ARGB",
+        "price" : "Consultar"
+    },
+
+    {   
+        "img" : 
+            {
+                "src": "/img/407-zot-fp.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "RTX 4070 Zotac 12 gb",
+        "price" : "Consultar"
+    },
+
+    {   
+        "img" : 
+            {
+                "src": "/img/Mother_ASUS_PROART_B650-CREATOR_AM5_DDR5.jpg",
+                "alt": "descripcion"
+            }
+        ,
+        "title" : "Asus B650-Creator",
+        "price" : "Consultar"
     }
-        
-
 ]
 

@@ -1,0 +1,51 @@
+
+#gridProducts{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+
+}
+
+.cardProduct{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 4;
+    padding: 16px;
+
+    @media (min-width:768px) {
+       grid-column: span 2; 
+    }
+    
+    @media (min-width:1280px){
+        grid-column: span 1;
+    }
+    
+}
+
+.cardProduct .cardPlaceholder{
+    aspect-ratio: 3/2;
+}
+
+.cardProduct .cardPlaceholder img{
+    width: 100%;
+}
+
+.cardProduct .cardDescription{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
