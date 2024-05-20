@@ -1,0 +1,69 @@
+.carrousel {
+    width: 100%;
+    max-width: 120em;
+    overflow: hidden;
+}
+
+
+.carrousel .grande {
+    width: 300%; /* Por cant de imagenes */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .5s ease;
+    transform: translateX(-33%); /* Transicion carrusel, %por imagen */
+}
+
+
+.carrousel .img {
+    width: calc( 100% / 3 ); /* Divido cant de imagenes */
+    min-height: 10vh;
+}
+
+
+.carrousel .puntos {
+    width: 100%;
+    background-color: #0d2033;;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.carrousel .punto {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: rgb(131, 131, 134);
+    margin: 0.2em;
+}
+
+.carrousel .punto.activo {
+    background-color: rgb(74, 202, 81);
+}
+
+.img {
+    height: 40em;
+}
+
+.punto {
+    border-radius: 50%;
+    box-shadow:  4px 4px 0px #232523,
+}
+
+@media screen and (max-width: 767px) {
+
+    .img{
+        height: 40%;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+
+    .img{
+        height: 25em;
+    }
+
+}
