@@ -75,16 +75,8 @@ formulario?.addEventListener('submit', function(event) {
 //Carga Dinamica Productos
 
 // Carga de los datos externos
-//const getProducts = function() {
-//    let products ;
-//    fetch('/json/productos.json')
-//        .then(response => response.json())
-//        .then(data => {
-//            products = data;
-//        })
-//    return products;
-//}
 
+//Promesa cargar json, si no carga, consologea Error y no rompe el sitio
 async function getProducts() {
     try {
       const response = await fetch('/json/productos.json');
@@ -103,7 +95,9 @@ async function getProducts() {
 const renderProducts = function(products) {
     const gridProducts = document.getElementById("gridProducts");
     gridProducts.innerHTML = "";
+    //Recorremos cada product of the array of productos.json
     products.forEach(product => {
+      //Modelamos el html
         const productCard = document.createElement("article");
         productCard.className = "cardProduct";
         productCard.innerHTML = `
