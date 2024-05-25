@@ -9,3 +9,8 @@ h1 {
   text-align: center;
   background-color: #177217;
 }
+
+.checkDesplegable {
+  display: flex ;
+  justify-content: center;
+}

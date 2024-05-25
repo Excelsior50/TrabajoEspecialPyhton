@@ -40,7 +40,7 @@ header {
 .cerrar-menu {
   display: none;
 }
-
+/* formulario de contacto */
 form {
   display: flex;
   flex-direction: column;
@@ -71,6 +71,7 @@ button {
   border: none;
   cursor: pointer;
 }
+/* Formulario de contacto fin */
 
 @media screen and (max-width: 550px) {
   .abrir-menu,

@@ -58,8 +58,10 @@ formulario?.addEventListener('submit', function(event) {
   const nombre = document.getElementById('nombre').value;
   const email = document.getElementById('email').value;
   const mensaje = document.getElementById('mensaje').value;
+  const numeroTelefono = document.getElementById('numeroTelefono').value;
+  const domicilio = document.getElementById('domicilio').value;
 
-  if (nombre === '' || email === '' || mensaje === '') {
+  if (nombre === '' || email === '' || mensaje === '' || domicilio === '' || numeroTelefono === '') {
     alert('Todos los campos son obligatorios');
     return;
   }
