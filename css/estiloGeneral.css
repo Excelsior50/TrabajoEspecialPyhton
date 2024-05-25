@@ -41,35 +41,64 @@ header {
   display: none;
 }
 /* formulario de contacto */
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  padding: 10px;
-  border: 1px solid #ccc;
+
+#formulario {
+  margin: 5%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%; /* Ancho completo de los campos */
+  padding: 10px; /* Espacio interno dentro de los campos */
+  margin-bottom: 15px; /* Espacio entre campos */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Esquinas redondeadas */
+}
+
+h1 {
+  text-align: center;
+  background-color: #177217;
+}
+
+.checkDesplegable {
+  display: flex ;
+  justify-content: center;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
+  display: block; /* Mostrar las etiquetas en una nueva línea */
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+  font-weight: bold; /* Texto en negrita para las etiquetas */
+  text-align: center;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+/* Estilos para el botón de envío */
+button[type="submit"] {
+  background-color: #4CAF50; /* Color de fondo verde */
+  color: white; /* Color de texto blanco */
+  padding: 10px 20px; /* Espacio interno del botón */
+  border: none; /* Eliminar el borde por defecto */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Indicador de cursor en forma de mano */
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+/* Estilos específicos para smartphones */
+@media (max-width: 480px) {
+  /* Ajustar el tamaño de fuente para pantallas pequeñas */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustar el tamaño de los botones para pantallas pequeñas */
+  button[type="submit"] {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    padding: 8px 15px; /* Espacio interno más pequeño */
+  }
 }
 /* Formulario de contacto fin */
 
