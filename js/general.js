@@ -79,7 +79,7 @@ formulario?.addEventListener('submit', function(event) {
 //Promesa cargar json, si no carga, consologea Error y no rompe el sitio
 async function getProducts() {
     try {
-      const response = await fetch('../json/productos.json');
+      const response = await fetch('./json/productos.json');
       if (!response.ok) {
         throw new Error('Error al cargar el archivo JSON');
       }
