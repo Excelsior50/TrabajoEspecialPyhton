@@ -50,8 +50,9 @@ header {
 }
 
 #contactoBody {
-  background-color: #2e58364f;
+    background: linear-gradient(to right, #f0f2f0, #000c40);
 }
+
 
 input[type="text"],
 input[type="email"],
