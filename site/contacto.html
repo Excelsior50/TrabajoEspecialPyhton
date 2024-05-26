@@ -38,62 +38,64 @@
 
       <label for="domicilio">Domicilio</label>
       <input type="text" id="domicilio" name="domicilio" required />
-    <div class="checkDesplegable">
-      <!-- Checkbox -->
-     <!-- <div class="checkboxContacto">-->
+      <div class="checkDesplegable">
+        <!-- Checkbox -->
+        <!-- <div class="checkboxContacto">-->
         <label for="armadoPC">Armado de PC</label>
-        <input type="checkbox" id="armadoPC" name="armadoPC">
-        
+        <input type="checkbox" id="armadoPC" name="armadoPC" />
+
         <label for="ActHard">Actualización de Hardware</label>
-        <input type="checkbox" id="ActHard" name="ActHard">
-        
+        <input type="checkbox" id="ActHard" name="ActHard" />
+
         <label for="ActSoft">Actualización de Software</label>
-        <input type="checkbox" id="ActSoft" name="ActSoft">
-        
+        <input type="checkbox" id="ActSoft" name="ActSoft" />
+
         <label for="otros">Otros</label>
-        <input type="checkbox" id="otros" name="otros">
-     <!-- </div>-->
-        
+        <input type="checkbox" id="otros" name="otros" />
+        <!-- </div>-->
+
         <!-- Desplegable -->
         <label for="turno">Tu Perfil</label>
         <select name="turno">
           <option value="valor1">Gamer</option>
           <option value="valor2">Programador</option>
-          <option value="valor3" selected="true">Ninguna de esas, soy un tipo normal</option>
+          <option value="valor3" selected="true">
+            Ninguna de esas, soy un tipo normal
+          </option>
         </select>
       </div>
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
 
       <button class="enviar" type="submit">Enviar</button>
     </form>
     <script src="../js/general.js"></script>
+    <!--Footer -->
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure>
+            <a href="#">
+              <img src="../img/TienditaGamer.webp" alt="Logo TienditaGamer" />
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>SOBRE NOSOTROS</h2>
+          <p>
+            Somos una empresa que se dedica a vender componentes de hardware, en
+            la cual nuestro objetivo es ser una alternativa para aquellos que
+            busquen componentes de manera local a buen precio y no quieran pagar
+            mas de lo que costaria si lo buscaran en otros lados
+          </p>
+        </div>
+      </div>
+      <div class="grupo-2">
+        <small
+          >&copy; 2024 <b>Nombre tienda</b> - Todos los Derechos
+          Reservados.</small
+        >
+      </div>
+    </footer>
   </body>
-  <!--Footer -->
-  <footer class="pie-pagina">
-    <div class="grupo-1">
-      <div class="box">
-        <figure>
-          <a href="#">
-            <img src="../img/TienditaGamer.webp" alt="Logo TienditaGamer" />
-          </a>
-        </figure>
-      </div>
-      <div class="box">
-        <h2>SOBRE NOSOTROS</h2>
-        <p>
-          Somos una empresa que se dedica a vender componentes de hardware, en
-          la cual nuestro objetivo es ser una alternativa para aquellos que
-          busquen componentes de manera local a buen precio y no quieran pagar
-          mas de lo que costaria si lo buscaran en otros lados
-        </p>
-      </div>
-    </div>
-    <div class="grupo-2">
-      <small
-        >&copy; 2024 <b>Nombre tienda</b> - Todos los Derechos
-        Reservados.</small
-      >
-    </div>
-  </footer>
 </html>
