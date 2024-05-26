@@ -10,7 +10,7 @@
     />
     <title>Contacto</title>
   </head>
-  <body>
+  <body id="contactoBody">
     <header class="header">
       <img src="../img/TienditaGamer.png" alt="TienditaGamer" class="logo" />
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
@@ -40,30 +40,32 @@
       <input type="text" id="domicilio" name="domicilio" required />
     <div class="checkDesplegable">
       <!-- Checkbox -->
+     <!-- <div class="checkboxContacto">-->
         <label for="armadoPC">Armado de PC</label>
         <input type="checkbox" id="armadoPC" name="armadoPC">
-  
+        
         <label for="ActHard">Actualización de Hardware</label>
         <input type="checkbox" id="ActHard" name="ActHard">
-  
+        
         <label for="ActSoft">Actualización de Software</label>
         <input type="checkbox" id="ActSoft" name="ActSoft">
-  
+        
         <label for="otros">Otros</label>
         <input type="checkbox" id="otros" name="otros">
-  
+     <!-- </div>-->
+        
         <!-- Desplegable -->
         <label for="turno">Tu Perfil</label>
-             <select name="turno">
-                 <option value="valor1">Gamer</option>
-                 <option value="valor2">Programador</option>
-                 <option value="valor3" selected="true">Ninguna de esas, soy un tipo normal</option>
-             </select>
-     </div>
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" required></textarea>
+        <select name="turno">
+          <option value="valor1">Gamer</option>
+          <option value="valor2">Programador</option>
+          <option value="valor3" selected="true">Ninguna de esas, soy un tipo normal</option>
+        </select>
+      </div>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
 
-      <button type="submit">Enviar</button>
+      <button class="enviar" type="submit">Enviar</button>
     </form>
     <script src="../js/general.js"></script>
   </body>
