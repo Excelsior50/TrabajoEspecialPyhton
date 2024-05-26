@@ -21,8 +21,12 @@ header {
 }
 
 .logo {
-  max-width: 5rem;
-  
+  max-width: 5rem; 
+}
+
+#imgFooter{
+  width: 68%;
+  height: auto;
 }
 
 .nav-list {
@@ -52,7 +56,6 @@ header {
 #contactoBody {
     background: linear-gradient(to right, #f0f2f0, #000c40);
 }
-
 
 input[type="text"],
 input[type="email"],
