@@ -1,4 +1,60 @@
-class Tabla:
+from flask import render_template, request, redirect, url_for
+from connect_db import cursor,connection
+from app import app
+
+# Ruta para mostrar el formulario de contacto
+@app.route('/')
+def form():
+    return render_template('form.html')
+
+# Ruta para manejar la creación de un nuevo contacto
+@app.route('/add_contact', methods=['POST'])
+def add_contact():
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        email = request.form['email']
+        numeroTelefono = request.form['numeroTelefono']
+        dni = request.form['dni']
+        armadoPC = 'armadoPC' in request.form
+        actHard = 'ActHard' in request.form
+        actSoft = 'ActSoft' in request.form
+        otros = 'otros' in request.form
+        perfil = request.form['turno']
+        mensaje = request.form['mensaje']
+
+        insert_query = """
+            INSERT INTO Contacts (Name, Email, Phone, DNI, ArmadoPC, ActHard, ActSoft, Otros, Profile, Message)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        cursor.execute(insert_query, (nombre, email, numeroTelefono, dni, armadoPC, actHard, actSoft, otros, perfil, mensaje))
+        connection.commit()
+        
+        return redirect(url_for('form'))
+
+# Ruta para mostrar los contactos
+@app.route('/contacts')
+def contacts():
+    cursor.execute("SELECT * FROM Contacts")
+    contacts = cursor.fetchall()
+    return render_template('contacts.html', contacts=contacts)
+
+# Ruta para eliminar un contacto por ID
+@app.route('/delete_contact/<int:contact_id>')
+def delete_contact(contact_id):
+    cursor.execute("DELETE FROM Contacts WHERE ContactID = %s", (contact_id,))
+    connection.commit()
+    return redirect(url_for('contacts'))
+
+# Ruta para eliminar un contacto por DNI
+@app.route('/delete_contact_by_dni', methods=['POST'])
+def delete_contact_by_dni():
+    dni = request.form['dni']
+    cursor.execute("DELETE FROM Contacts WHERE DNI = %s", (dni,))
+    connection.commit()
+    return redirect(url_for('contacts'))
+
+
+"""class Tabla:
     
     # Constructor
     def __init__(self):
@@ -107,3 +163,5 @@ delete_query = "DELETE FROM Suppliers WHERE SupplierID = %s"
 supplier_id = 1
 cursor.execute(delete_query, (supplier_id,))
 connection.commit()  # Guarda los cambios en la base de datos
+
+"""
