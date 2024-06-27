@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/iniciosesion.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilosIndex.css') }}" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -15,7 +15,7 @@
   </head>
   <body>
     <a href="/index.html" class="btn-inicio">
-      <img src="../img/TienditaGamer.webp" class="logo" alt="Logo TienditaGamer">
+      <img src="{{ url_for('static', filename='img/TienditaGamer.webp') }}" class="logo" alt="Logo TienditaGamer">
     </a>
     <div class="container">
       <div class="form-content">

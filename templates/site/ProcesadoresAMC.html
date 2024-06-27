@@ -3,45 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/estilosIndex.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilosIndex.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/menu_desp.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu_desp.css') }}">
     <title>ProcesadorAMC</title>
-    <!DOCTYPE html>
+  </head>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/estilosIndex.css" />
-    <title>Contacto</title>
-  <!-- </head> --><!-- Comento este head porque creo que esta incorrecto -->
   <body>
     <header class="header">
-      <img src="../img/TienditaGamer.webp" alt="TienditaGamer" class="logo" />
+      <img src="{{ url_for('static', filename='img/TienditaGamer.webp') }}" alt="TienditaGamer" class="logo" />
       <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
       <nav class="nav" id="nav">
         <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
         <ul class="nav-list">
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="../site/productos.html">Productos</a></li>
-          <li><a href="../site/contacto.html">Contacto</a></li>
-          <li><a href="../site/inicioSesion.html">Usuario</a></li>
+          <li><a href="{{ url_for('home') }}">Inicio</a></li>
+          <li>
+            <a href="{{ url_for('productos') }}">Productos</a>
+          </li>
+          <li>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+          </li>
+          <li>
+            <a href="{{ url_for('inicioSesion') }}">Usuario</a>
+          </li>
         </ul>
       </nav>
     </header>
     <!-- Aquí puedes listar tus productos o categorías de productos -->
-    <script src="../js/general.js"></script>
+    <script src="{{ url_for('static', filename='js/general.js') }}"></script>
     
     <header>
       <h2>PROCESADORES AMC</h2>
     </header>
     <div>
-      <img src="../img/Procesador_AMD_RYZEN_3_3200G_4.0GHz_Turbo.jpg" 
+      <img src="{{ url_for('static', filename='img/Procesador_AMD_RYZEN_3_3200G_4.0GHz_Turbo.jpg') }} 
       alt="Procesador AMC RYXEN 3 3200G 4.0GHz Turbo" class="img_menu_desp">
       <p>Procesador AMC RYXEN 3 3200G 4.0GHz Turbo</p>
     </div>
     <div>
-      <img src="../img/Procesador_AMD_RYZEN_5_3600_4.2GHz_Turbo.jpg" 
+      <img src="{{ url_for('static', filename='img/Procesador_AMD_RYZEN_5_3600_4.2GHz_Turbo.jpg') }}
       alt="Procesador AMC RYXEN 5 3600 4.2GHz Turbo" class="img_menu_desp">
       <p>Procesador AMC RYXEN 5 3600 4.2GHz Turbo</p>
     </div>
@@ -50,7 +50,7 @@
         <div class="box">
           <figure>
             <a href="../index.html">
-              <img src="../img/TienditaGamer.webp" alt="Logo TienditaGamer" />
+              <img src="{{ url_for('static', filename='img/TienditaGamer.webp') }}" alt="Logo TienditaGamer" />
             </a>
           </figure>
         </div>
