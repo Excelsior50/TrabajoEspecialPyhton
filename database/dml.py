@@ -7,7 +7,7 @@ from app import app
 def form():
     return render_template('form.html')
 
-# Ruta para manejar la creación de un nuevo contacto
+# Ruta para manejar la creación o actualización de un contacto
 @app.route('/add_contact', methods=['POST'])
 def add_contact():
     if request.method == 'POST':
@@ -22,13 +22,27 @@ def add_contact():
         perfil = request.form['turno']
         mensaje = request.form['mensaje']
 
-        insert_query = """
-            INSERT INTO Contacts (Name, Email, Phone, DNI, ArmadoPC, ActHard, ActSoft, Otros, Profile, Message)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """
-        cursor.execute(insert_query, (nombre, email, numeroTelefono, dni, armadoPC, actHard, actSoft, otros, perfil, mensaje))
+        # Comprueba si el contacto ya existe por DNI
+        cursor.execute("SELECT * FROM Contacts WHERE DNI = %s", (dni,))
+        existing_contact = cursor.fetchone()
+
+        if existing_contact:
+            # Actualiza el contacto existente
+            update_query = """
+                UPDATE Contacts
+                SET Name = %s, Email = %s, Phone = %s, ArmadoPC = %s, ActHard = %s, ActSoft = %s, Otros = %s, Profile = %s, Message = %s
+                WHERE DNI = %s
+            """
+            cursor.execute(update_query, (nombre, email, numeroTelefono, armadoPC, actHard, actSoft, otros, perfil, mensaje, dni))
+        else:
+            # Inserta un nuevo contacto
+            insert_query = """
+                INSERT INTO Contacts (Name, Email, Phone, DNI, ArmadoPC, ActHard, ActSoft, Otros, Profile, Message)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            cursor.execute(insert_query, (nombre, email, numeroTelefono, dni, armadoPC, actHard, actSoft, otros, perfil, mensaje))
+
         connection.commit()
-        
         return redirect(url_for('form'))
 
 # Ruta para mostrar los contactos
