@@ -2,15 +2,22 @@ from flask import render_template, request, redirect, url_for
 from connect_db import cursor,connection
 from app import app
 
+print('entro')
+
+"""
 # Ruta para mostrar el formulario de contacto
 @app.route('/')
 def form():
+    print('entro')
     return render_template('form.html')
+"""
+
+
 
 # Ruta para manejar la creación o actualización de un contacto
 @app.route('/add_contact', methods=['POST'])
 def add_contact():
-    if request.method == 'POST':
+        print('entro')
         nombre = request.form['nombre']
         email = request.form['email']
         numeroTelefono = request.form['numeroTelefono']
@@ -23,7 +30,7 @@ def add_contact():
         mensaje = request.form['mensaje']
 
         # Comprueba si el contacto ya existe por DNI
-        cursor.execute("SELECT * FROM Contacts WHERE DNI = %s", (dni,))
+        cursor.execute("SELECT * FROM contacts WHERE DNI = %s", (dni,))
         existing_contact = cursor.fetchone()
 
         if existing_contact:

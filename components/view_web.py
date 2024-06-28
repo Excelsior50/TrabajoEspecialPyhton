@@ -1,5 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from app import app
+
+from database.connect_db import get_db_connection
+
 
 #Rutas de la app
 @app.route('/')
@@ -16,7 +19,18 @@ def inicioSesion():
 
 @app.route('/site/productos')
 def productos():
-    return render_template('site/productos.html')
+    connection = get_db_connection()
+    try:
+        cursor = connection.cursor(dictionary = True)
+    except Exception: 
+        connection.connect()
+        cursor = connection.cursor(dictionary = True)
+    
+    cursor.execute("select * from products;")
+    datos = cursor.fetchall()
+    
+    #return jsonify(datos) #MODELO ARQUITECTURA API-REST
+    return render_template('site/productos.html', datos=datos) #PATRON MVC
 
 @app.route('/site/ProcesadoresAMC')
 def ProcesadoresAMC():

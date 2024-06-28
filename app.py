@@ -18,6 +18,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 #Importar Views
 from components.view_web import *
 
+
 if __name__ == '__main__':
 
     app.run(host='127.0.0.1', port=3000, debug=True)
+
