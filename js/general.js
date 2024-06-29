@@ -44,49 +44,24 @@ punto.forEach( (cadaPunto , i) => {
     })
 })
 
-// Formulario de contacto
-
-// Defino constante formulario
-const formulario = document.getElementById('formulario');
-
-// addeventListener para "escuchar" al botón submit, preventDefault para evitar la recarga.
-//Se agrega ?, optional chaining, para programacion defensiva.
-formulario?.addEventListener('submit', function(event) {
-  event.preventDefault();
-
-// Defino constantes
-  const nombre = document.getElementById('nombre').value;
-  const email = document.getElementById('email').value;
-  const mensaje = document.getElementById('mensaje').value;
-  const numeroTelefono = document.getElementById('numeroTelefono').value;
-  const domicilio = document.getElementById('domicilio').value;
-
-  if (nombre === '' || email === '' || mensaje === '' || domicilio === '' || numeroTelefono === '') {
-    alert('Todos los campos son obligatorios');
-    return;
-  }
-
-  // Enviar los datos a un servidor
-  // ...
-
-  alert('Formulario enviado correctamente');
-});
-
-
-
 //Carga Dinamica Productos
 
 // Carga de los datos externos
 
+//const datos = 'http://127.0.0.1:5000' ./json/productos.json
+
+
+
 //Promesa cargar json, si no carga, consologea Error y no rompe el sitio
 async function getProducts() {
     try {
-      const response = await fetch('./json/productos.json');
+      const response = await fetch('http://localhost:5000');
       if (!response.ok) {
-        throw new Error('Error al cargar el archivo JSON');
-      }
-      const data = await response.json();
-      return data;
+          throw new Error('Error al cargar el archivo JSON');
+        }
+        const data = await response.json();
+        console.log('LAU MAMAHUEVO',data);
+        return data;
     } catch (error) {
       console.error('Error:', error);
       return [];
@@ -104,11 +79,11 @@ const renderProducts = function(products) {
         productCard.className = "cardProduct";
         productCard.innerHTML = `
             <div class = "cardPlaceholder" >
-                <img src=${product.img.src} alt=${product.img.alt} />
+                <img src=${product?.ImgSrc} alt=${product?.ProductName} />
             </div>
             <div class = "cardDescription" >
-                <h2>${product.title}</h2>
-                <span>${product.price}</span>
+                <h2>${product.ProductName}</h2>
+                <span>${product.UnitPrice}</span>
             </div>
         `
         gridProducts.appendChild(productCard);

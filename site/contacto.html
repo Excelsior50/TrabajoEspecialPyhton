@@ -26,7 +26,7 @@
     </header>
     <h1>Formulario de contacto</h1>
 
-    <form id="formulario">
+    <form class="formulario" id="contacto">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" required />
 
@@ -36,25 +36,21 @@
       <label for="numeroTelefono">Número de Teléfono</label>
       <input type="tel" id="numeroTelefono" name="numeroTelefono" required />
 
-      <label for="domicilio">Domicilio</label>
-      <input type="text" id="domicilio" name="domicilio" required />
+      <!--
       <div class="checkDesplegable">
-        <!-- Checkbox -->
-        <!-- <div class="checkboxContacto">-->
         <label for="armadoPC">Armado de PC</label>
-        <input type="checkbox" id="armadoPC" name="armadoPC" />
+        <input type="checkbox" name="armadoPC" />
 
         <label for="ActHard">Actualización de Hardware</label>
-        <input type="checkbox" id="ActHard" name="ActHard" />
+        <input type="checkbox" name="ActHard" />
 
         <label for="ActSoft">Actualización de Software</label>
-        <input type="checkbox" id="ActSoft" name="ActSoft" />
+        <input type="checkbox" name="ActSoft" />
 
         <label for="otros">Otros</label>
-        <input type="checkbox" id="otros" name="otros" />
-        <!-- </div>-->
+        <input type="checkbox" name="otros" />
 
-        <!-- Desplegable -->
+
         <label for="turno">Tu Perfil</label>
         <select name="turno">
           <option value="valor1">Gamer</option>
@@ -63,39 +59,65 @@
             Ninguna de esas, soy un tipo normal
           </option>
         </select>
+        -->
       </div>
       <label for="mensaje">Mensaje</label>
       <textarea id="mensaje" name="mensaje" required></textarea>
-
       <button class="enviar" type="submit">Enviar</button>
     </form>
-    <script src="../js/general.js"></script>
-    <!--Footer -->
-    <footer class="pie-pagina">
-      <div class="grupo-1">
-        <div class="box">
-          <figure>
-            <a href="#">
-              <img src="../img/TienditaGamer.webp" alt="Logo TienditaGamer" />
-            </a>
-          </figure>
-        </div>
-        <div class="box">
-          <h2>SOBRE NOSOTROS</h2>
-          <p>
-            Somos una empresa que se dedica a vender componentes de hardware, en
-            la cual nuestro objetivo es ser una alternativa para aquellos que
-            busquen componentes de manera local a buen precio y no quieran pagar
-            mas de lo que costaria si lo buscaran en otros lados
-          </p>
-        </div>
+    
+    <!--Buscar Correo Electronico-->
+    <h3>Buscar Usuario por Correo Electrónico</h3>
+      <form class="formulario" action="/" method="post">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Buscar</button>
+      </form>
+      
+      
+    <!-- Formulario de modificación--> 
+      <div id="edit-form" style="display:none;">
+        <h2>Modificar Usuario</h2>
+        <form action="/edit/" method="post">
+          <input type="hidden" id="edit-id" name="id">
+          <label for="edit-nombre">Nombre:</label>
+          <input type="text" id="edit-nombre" name="nombre" required>
+          <br>
+          <label for="edit-email">Correo Electrónico:</label>
+          <input type="email" id="edit-email" name="email" required>
+          <br>
+          <button type="submit">Guardar Cambios</button>
+        </form>
       </div>
+
+      <script src="../js/form.js"></script>
+      <!--Footer -->
+      <footer class="pie-pagina">
+        <div class="grupo-1">
+          <div class="box">
+            <figure>
+              <a href="#">
+                <img src="../img/TienditaGamer.webp" alt="Logo TienditaGamer" />
+              </a>
+            </figure>
+          </div>
+          <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>
+              Somos una empresa que se dedica a vender componentes de hardware, en
+              la cual nuestro objetivo es ser una alternativa para aquellos que
+              busquen componentes de manera local a buen precio y no quieran pagar
+              mas de lo que costaria si lo buscaran en otros lados
+            </p>
+          </div>
+        </div>
+      
       <div class="grupo-2">
         <small
-          >&copy; 2024 <b>Nombre tienda</b> - Todos los Derechos
-          Reservados.</small
+        >&copy; 2024 <b>Nombre tienda</b> - Todos los Derechos
+        Reservados.</small
         >
       </div>
     </footer>
   </body>
-</html>
+  </html>

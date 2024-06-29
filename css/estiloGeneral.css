@@ -46,7 +46,7 @@ header {
 }
 /* formulario de contacto */
 
-#formulario {
+.formulario {
   display: flex;
   margin: 5%;
   align-items: center;
@@ -71,6 +71,13 @@ textarea {
 h1 {
   text-align: center;
   background-color: #177217;
+  font-size: 24px;
+}
+
+h3 {
+  text-align: center;
+  background-color: #177217;
+  font-size: 20px;
 }
 
 .checkDesplegable {
