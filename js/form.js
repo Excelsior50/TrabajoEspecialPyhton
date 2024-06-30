@@ -20,7 +20,7 @@ formulario?.addEventListener('submit', async function(event) {
       },
       body : JSON.stringify(data)
     })
-    console.log(response, 'ENTRO')
+    console.log(response, 'ENTRO ADD')
   } catch (error) {
     console.error(error)
   }
@@ -42,3 +42,106 @@ function getFormData(form) {
   return data;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('buscar-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const email = document.getElementById('emailSearch').value;
+  
+  try {
+      const response = await fetch('http://localhost:5000/buscar', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: email })
+      });
+
+      if (!response.ok) {
+          throw new Error(`Network response was not ok ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      const resultadosDiv = document.getElementById('resultados');
+      resultadosDiv.innerHTML = '';
+
+      if (data.length > 0) {
+          const table = document.createElement('table');
+          const header = table.insertRow();
+          header.innerHTML = '<th>Nombre</th><th>Correo Electrónico</th><th>Número de Teléfono</th><th>Mensaje</th><th>Acciones</th>';
+          data.forEach(usuario => {
+              const row = table.insertRow();
+              row.innerHTML = `
+                  <td><input type="text" value="${usuario.nombre}" required></td>
+                  <td>${usuario.email}</td>
+                  <td><input type="tel" value="${usuario.numeroTelefono}" required></td>
+                  <td><textarea required>${usuario.mensaje}</textarea></td>
+                  <td>
+                      <button type="submit" onclick="modificarUsuario('${usuario.email}', this)">Modificar</button>
+                      <button type="submit" onclick="eliminarUsuario('${usuario.email}', this)">Eliminar</button>
+                  </td>
+              `;
+          });
+          resultadosDiv.appendChild(table);
+      } else {
+          resultadosDiv.innerHTML = '<p>No se encontraron resultados.</p>';
+      }
+  } catch (error) {
+      console.error('Error:', error);
+  }
+});
+});
+
+async function modificarUsuario(email, button) {
+  // Lógica para modificar el usuario
+  console.log('Modificando usuario:', email);
+  const row = button.closest('tr');
+  const nombre = row.querySelector('input[type="text"]').value;
+  const numeroTelefono = row.querySelector('input[type="tel"]').value;
+  const mensaje = row.querySelector('textarea').value;
+  console.log(mensaje);//IMPRIME MENSAJE PARA SABER SI DETECTA
+  try {
+      const response = await fetch('http://localhost:5000/modificar', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, nombre, numeroTelefono, mensaje })
+      });
+      console.log(mensaje, 'DENTRO DE AWAIT')
+      console.log(JSON.stringify(data))
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+      }
+
+      const data = await response.json();
+      alert('Usuario modificado exitosamente');
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
+
+
+
+async function eliminarUsuario(email, button) {
+  try {
+      const response = await fetch('http://localhost:5000/eliminar', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+      }
+
+      const data = await response.json();
+      alert('Usuario eliminado exitosamente');
+      document.getElementById('buscar-form').submit();
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
