@@ -55,12 +55,11 @@ punto.forEach( (cadaPunto , i) => {
 //Promesa cargar json, si no carga, consologea Error y no rompe el sitio
 async function getProducts() {
     try {
-      const response = await fetch('http://localhost:5000');
+      const response = await fetch('https://excelsior5.pythonanywhere.com/');
       if (!response.ok) {
           throw new Error('Error al cargar el archivo JSON');
         }
         const data = await response.json();
-        console.log('LAU MAMAHUEVO',data);
         return data;
     } catch (error) {
       console.error('Error:', error);

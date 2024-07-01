@@ -12,7 +12,7 @@ formulario?.addEventListener('submit', async function(event) {
   console.log(data)
 
   try {
-    const response = await fetch('http://localhost:5000/add_contact', {
+    const response = await fetch('https://excelsior5.pythonanywhere.com/add_contact', {
       method:'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ document.getElementById('buscar-form').addEventListener('submit', async function
   const email = document.getElementById('emailSearch').value;
   
   try {
-      const response = await fetch('http://localhost:5000/buscar', {
+      const response = await fetch('https://excelsior5.pythonanywhere.com/buscar', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ async function modificarUsuario(id, email, button) {
   const numeroTelefono = row.querySelector('input[type="tel"]').value;
   const mensaje = row.querySelector('textarea').value;
   try {
-      const response = await fetch('http://localhost:5000/modificar', {
+      const response = await fetch('https://excelsior5.pythonanywhere.com/modificar', {
           method: 'POST',
           //mode: 'no-cors',
           headers: {
@@ -124,7 +124,7 @@ async function modificarUsuario(id, email, button) {
 async function eliminarUsuario(id, button) {
   try {
     console.log('ELIMINANDO consulta:', id);
-    const response = await fetch('http://localhost:5000/eliminar', {
+    const response = await fetch('https://excelsior5.pythonanywhere.com/eliminar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
