@@ -14,7 +14,6 @@ formulario?.addEventListener('submit', async function(event) {
   try {
     const response = await fetch('http://localhost:5000/add_contact', {
       method:'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -67,17 +66,18 @@ document.getElementById('buscar-form').addEventListener('submit', async function
       if (data.length > 0) {
           const table = document.createElement('table');
           const header = table.insertRow();
-          header.innerHTML = '<th>Nombre</th><th>Correo Electrónico</th><th>Número de Teléfono</th><th>Mensaje</th><th>Acciones</th>';
+          header.innerHTML = '<th>NroConsulta</th><th>Nombre</th><th>Correo Electrónico</th><th>Número de Teléfono</th><th>Mensaje</th><th>Acciones</th>';
           data.forEach(usuario => {
               const row = table.insertRow();
               row.innerHTML = `
+                  <td>${usuario.id}"</td>
                   <td><input type="text" value="${usuario.nombre}" required></td>
                   <td>${usuario.email}</td>
                   <td><input type="tel" value="${usuario.numeroTelefono}" required></td>
                   <td><textarea required>${usuario.mensaje}</textarea></td>
                   <td>
-                      <button type="submit" onclick="modificarUsuario('${usuario.email}', this)">Modificar</button>
-                      <button type="submit" onclick="eliminarUsuario('${usuario.email}', this)">Eliminar</button>
+                      <button type="submit" onclick="modificarUsuario('${usuario.id}', '${usuario.email}', this)">Modificar</button>
+                      <button type="submit" onclick="eliminarUsuario('${usuario.id}', this)">Eliminar</button>
                   </td>
               `;
           });
@@ -91,30 +91,28 @@ document.getElementById('buscar-form').addEventListener('submit', async function
 });
 });
 
-async function modificarUsuario(email, button) {
+async function modificarUsuario(id, email, button) {
   // Lógica para modificar el usuario
-  console.log('Modificando usuario:', email);
+  console.log('Modificando consulta:', id);
   const row = button.closest('tr');
   const nombre = row.querySelector('input[type="text"]').value;
   const numeroTelefono = row.querySelector('input[type="tel"]').value;
   const mensaje = row.querySelector('textarea').value;
-  console.log(mensaje);//IMPRIME MENSAJE PARA SABER SI DETECTA
   try {
       const response = await fetch('http://localhost:5000/modificar', {
           method: 'POST',
-          mode: 'no-cors',
+          //mode: 'no-cors',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ email, nombre, numeroTelefono, mensaje })
+          body: JSON.stringify({id, nombre, email, numeroTelefono, mensaje })
       });
-      console.log(mensaje, 'DENTRO DE AWAIT')
-      console.log(JSON.stringify(data))
+      const envio = await response.json();
+      console.log(envio.id)
       if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
       }
 
-      const data = await response.json();
       alert('Usuario modificado exitosamente');
   } catch (error) {
       console.error('Error:', error);
@@ -123,16 +121,16 @@ async function modificarUsuario(email, button) {
 
 
 
-async function eliminarUsuario(email, button) {
+async function eliminarUsuario(id, button) {
   try {
-      const response = await fetch('http://localhost:5000/eliminar', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email })
-      });
+    console.log('ELIMINANDO consulta:', id);
+    const response = await fetch('http://localhost:5000/eliminar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    });
 
       if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
