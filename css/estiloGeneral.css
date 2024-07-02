@@ -74,7 +74,7 @@ h1 {
   font-size: 24px;
 }
 
-h3 {
+.header_buscar {
   text-align: center;
   background-color: #177217;
   font-size: 20px;
@@ -96,7 +96,7 @@ label {
 
 /* Estilos para el botón de envío */
 button[type="submit"] {
-  background-color: #4CAF50; /* Color de fondo verde */
+  background-color: #177217; /* Color de fondo verde */
   color: white; /* Color de texto blanco */
   padding: 10px 20px; /* Espacio interno del botón */
   border: none; /* Eliminar el borde por defecto */
